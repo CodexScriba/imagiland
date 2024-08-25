@@ -1,12 +1,13 @@
 "use client";
 import React from "react";
 import HTMLFlipBook from "react-pageflip";
+import styles from "./FlipBook.module.css";
 
 const FlipBook = () => {
 	return (
 		<HTMLFlipBook
-			width={550}
-			height={733}
+			width={window.innerWidth}
+			height={window.innerHeight}
 			size="stretch"
 			minWidth={315}
 			maxWidth={1000}
@@ -15,7 +16,7 @@ const FlipBook = () => {
 			maxShadowOpacity={0.5}
 			showCover={true}
 			mobileScrollSupport={true}
-			className="flipbook"
+			className={styles.flipbook}
 			startPage={0} // Default to the first page
 			drawShadow={true} // Draws shadow between pages
 			flippingTime={1000} // Time in ms for the page flip
@@ -23,7 +24,7 @@ const FlipBook = () => {
 			style={{}} // Optional: Add custom styling
 			usePortrait={false}
 			startZIndex={0}
-			autoSize={false}
+			autoSize={true}
 			clickEventForward={false}
 			swipeDistance={0}
 			showPageCorners={false}
