@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import FlipBook from "./components/FlibBook";
+import FlipBook from "./components/FlipBook/FlibBook";
 
 const StoryPage = () => {
 	return (
