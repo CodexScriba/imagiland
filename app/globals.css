@@ -32,11 +32,11 @@
   }
 
   .dark {
-    --background: 0 0% 7%; /* #121212  Deep dark for backgrounds */
+    --background: 0 0% 16%; /* #2A2A2A  Very dark gray for backgrounds */
     --foreground: 0 0% 88%; /* #E0E0E0  Soft white for primary text */
-    --card: 0 0% 12%; /* #1E1E1E  Slightly lighter dark for cards and content areas */
+    --card: 0 0% 18%; /* #2E2E2E  Slightly lighter dark gray for cards and content areas */
     --card-foreground: 0 0% 88%; /* #E0E0E0  Soft white for card text */
-    --popover: 0 0% 12%; /* #1E1E1E  Slightly lighter dark for popovers */
+    --popover: 0 0% 18%; /* #2E2E2E  Slightly lighter dark gray for popovers */
     --popover-foreground: 0 0% 88%; /* #E0E0E0  Soft white for popover text */
     --primary: 258 100% 73%; /* #9D6FFF  Lighter dreamy purple for primary actions */
     --primary-foreground: 0 0% 100%; /* #FFFFFF  White for primary action text */
@@ -48,8 +48,8 @@
     --muted-foreground: 0 0% 88%; /* #E0E0E0  Soft white for muted text */
     --destructive: 0 100% 71%; /* #FF6B6B  Softer red for error states */
     --destructive-foreground: 0 0% 100%; /* #FFFFFF  White for destructive action text */
-    --border: 0 0% 12%; /* #1E1E1E  Slightly lighter dark for borders */
-    --input: 0 0% 12%; /* #1E1E1E  Slightly lighter dark for input backgrounds */
+    --border: 0 0% 18%; /* #2E2E2E  Slightly lighter dark gray for borders */
+    --input: 0 0% 18%; /* #2E2E2E  Slightly lighter dark gray for input backgrounds */
     --ring: 258 100% 73%; /* #9D6FFF  Lighter dreamy purple for focus rings */
     --radius: 0.5rem;
     --chart-1: 48 100% 67%; /* #FFD54F  Chart color 1 */

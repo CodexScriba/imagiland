@@ -1,3 +1,4 @@
+# language update
 //app/next.config.js
 const {
 	PHASE_DEVELOPMENT_SERVER,
