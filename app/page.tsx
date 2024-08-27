@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import FlipBook from "./components/FlipBook/FlibBook";
 import Navbar from "./components/shared/navbar/Navbar";

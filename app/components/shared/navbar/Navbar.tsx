@@ -26,35 +26,37 @@ export default function Component() {
 		<nav className="flex h-14 items-center justify-between bg-transparent px-4 lg:px-6">
 			<div className="flex items-center">
 				<Link href="/" prefetch={false} className="flex items-center">
-					<span className="text-2xl font-bold">Logo</span>
+					<span className="text-2xl font-bold text-[color:var(--foreground)]">
+						Logo
+					</span>
 				</Link>
 			</div>
 			<div className="hidden space-x-4 md:flex">
 				<Link
 					href="/"
 					prefetch={false}
-					className="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+					className="text-sm font-medium text-[color:var(--foreground)] hover:text-[color:var(--primary)] dark:text-[color:var(--foreground)] dark:hover:text-[color:var(--primary-foreground)]"
 				>
 					Home
 				</Link>
 				<Link
 					href="/book-creation"
 					prefetch={false}
-					className="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+					className="text-sm font-medium text-[color:var(--foreground)] hover:text-[color:var(--primary)] dark:text-[color:var(--foreground)] dark:hover:text-[color:var(--primary-foreground)]"
 				>
 					Book Creation
 				</Link>
 				<Link
 					href="/library"
 					prefetch={false}
-					className="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+					className="text-sm font-medium text-[color:var(--foreground)] hover:text-[color:var(--primary)] dark:text-[color:var(--foreground)] dark:hover:text-[color:var(--primary-foreground)]"
 				>
 					Library
 				</Link>
 			</div>
 			<div className="flex items-center space-x-4">
 				<Select>
-					<SelectTrigger className="w-[100px]">
+					<SelectTrigger className="w-[115px] text-[color:var(--foreground)] dark:text-[color:var(--foreground)]">
 						<SelectValue placeholder="Language" />
 					</SelectTrigger>
 					<SelectContent>
@@ -65,29 +67,31 @@ export default function Component() {
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
 						<Button variant="outline" size="icon">
-							<Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-							<Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+							<Sun className="h-[1.2rem] w-[1.2rem] text-[color:var(--primary)] dark:text-[color:var(--primary-foreground)] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+							<Moon className="absolute h-[1.2rem] w-[1.2rem] text-[color:var(--secondary)] dark:text-[color:var(--secondary)] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
 							<span className="sr-only">Toggle theme</span>
 						</Button>
 					</DropdownMenuTrigger>
 					<DropdownMenuContent align="end">
 						<DropdownMenuItem onClick={() => setTheme("light")}>
-							<Sun className="mr-2 h-4 w-4" />
-							<span>Light</span>
+							<Sun className="mr-2 h-4 w-4 text-[color:var(--primary)]" />
+							<span className="text-[color:var(--foreground)]">Light</span>
 						</DropdownMenuItem>
 						<DropdownMenuItem onClick={() => setTheme("dark")}>
-							<MoonStar className="mr-2 h-4 w-4" />
-							<span>Dark</span>
+							<MoonStar className="mr-2 h-4 w-4 text-[color:var(--secondary)]" />
+							<span className="text-[color:var(--foreground)]">Dark</span>
 						</DropdownMenuItem>
 						<DropdownMenuItem onClick={() => setTheme("system")}>
-							<Laptop className="mr-2 h-4 w-4" />
-							<span>System</span>
+							<Laptop className="mr-2 h-4 w-4 text-[color:var(--accent)]" />
+							<span className="text-[color:var(--foreground)]">System</span>
 						</DropdownMenuItem>
 					</DropdownMenuContent>
 				</DropdownMenu>
 				<Button asChild>
 					<Link href="/auth" prefetch={false}>
-						Sign-in/Sign-up
+						<span className="text-[color:var(--foreground)]">
+							Sign-in/Sign-up
+						</span>
 					</Link>
 				</Button>
 			</div>
