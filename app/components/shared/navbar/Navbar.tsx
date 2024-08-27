@@ -40,11 +40,11 @@ export default function Component() {
 					Home
 				</Link>
 				<Link
-					href="/book-creation"
+					href="/story-creation"
 					prefetch={false}
 					className="text-sm font-medium text-[color:var(--foreground)] hover:text-[color:var(--primary)] dark:text-[color:var(--foreground)] dark:hover:text-[color:var(--primary-foreground)]"
 				>
-					Book Creation
+					Story Creation
 				</Link>
 				<Link
 					href="/library"
