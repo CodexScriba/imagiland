@@ -79,7 +79,8 @@ export default function Component() {
 
 	return (
 		<div className="flex items-center justify-center min-h-screen bg-gray-100">
-			<div className="bg-white p-6 rounded-lg shadow-lg w-4/5 h-4/5">
+			< 
+				c="bg-white p-6 rounded-lg shadow-lg w-4/5 h-4/5">
 				<Form {...form}>
 					<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
 						<div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
@@ -119,7 +120,8 @@ export default function Component() {
 												</Tooltip>
 											</TooltipProvider>
 										</div>
-									</FormControl>
+				s
+								</FormControl>
 									<FormDescription>
 										Characters: {field.value.length} | At least one character is
 										required.

@@ -1,84 +1,87 @@
-'use client'
-import React, { useState } from 'react';
-import { Plus, X } from 'lucide-react';
+import React from "react";
+import { useFieldArray, useForm, Controller } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { FaPlus } from "react-icons/fa";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+	storyCreationSchema,
+	type StoryCreationForm,
+} from "@/app/schemas/storyCreationSchema";
 
-interface CharacterInputProps {
-  value: string;
-  onChange: (value: string) => void;
-}
+const CharacterInput = () => {
+	const {
+		control,
+		handleSubmit,
+		formState: { errors },
+	} = useForm<StoryCreationForm>({
+		resolver: zodResolver(storyCreationSchema),
+		defaultValues: {
+			characters: [{ name: "" }],
+		},
+	});
 
-const CharacterInput: React.FC<CharacterInputProps> = ({ value, onChange }) => {
-  const [characters, setCharacters] = useState<string[]>(value ? value.split(';').map(c => c.trim()) : []);
-  const [newCharacter, setNewCharacter] = useState('');
+	const { fields, append, remove } = useFieldArray({
+		control,
+		name: "characters",
+	});
 
-  const addCharacter = () => {
-    if (newCharacter.trim()) {
-      const updatedCharacters = [...characters, newCharacter.trim()];
-      setCharacters(updatedCharacters);
-      onChange(updatedCharacters.join('; '));
-      setNewCharacter('');
-    }
-  };
+	const onSubmit = (data: StoryCreationForm) => {
+		console.log(data);
+		// Handle form submission
+	};
 
-  const removeCharacter = (index: number) => {
-    const updatedCharacters = characters.filter((_, i) => i !== index);
-    setCharacters(updatedCharacters);
-    onChange(updatedCharacters.join('; '));
-  };
-
-  return (
-    <div className="space-y-2">
-      <div className="flex items-center space-x-2">
-        <Input
-          placeholder="Enter a character name"
-          value={newCharacter}
-          onChange={(e) => setNewCharacter(e.target.value)}
-          onKeyPress={(e) => {
-            if (e.key === 'Enter') {
-              e.preventDefault();
-              addCharacter();
-            }
-          }}
-        />
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Button type="button" size="icon" variant="outline" onClick={addCharacter}>
-                <Plus className="h-4 w-4" />
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>Add character</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-      </div>
-      <div className="flex flex-wrap gap-2">
-        {characters.map((character, index) => (
-          <div key={index} className="flex items-center bg-gray-100 rounded-full px-3 py-1">
-            <span>{character}</span>
-            <Button
-              type="button"
-              size="icon"
-              variant="ghost"
-              className="ml-2 h-5 w-5"
-              onClick={() => removeCharacter(index)}
-            >
-              <X className="h-3 w-3" />
-            </Button>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+	return (
+		<form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+			{fields.map((field, index) => (
+				<div key={field.id} className="flex items-center space-x-2">
+					<Controller
+						name={`characters.${index}.name`}
+						control={control}
+						render={({ field }) => (
+							<div className="flex-grow">
+								<Label htmlFor={`character-${index}`} className="sr-only">
+									Character Name
+								</Label>
+								<Input
+									{...field}
+									id={`character-${index}`}
+									placeholder="Enter character name"
+									className={
+										errors.characters?.[index]?.name ? "border-red-500" : ""
+									}
+								/>
+								{errors.characters?.[index]?.name && (
+									<p className="text-red-500 text-sm mt-1">
+										{errors.characters[index]?.name?.message}
+									</p>
+								)}
+							</div>
+						)}
+					/>
+					<Button
+						type="button"
+						size="icon"
+						variant="destructive"
+						onClick={() => remove(index)}
+						className="flex-shrink-0"
+					>
+						X
+					</Button>
+				</div>
+			))}
+			<Button
+				type="button"
+				onClick={() => append({ name: "", characterDescription: "" })} // Add characterDescription
+				className="flex items-center space-x-2"
+			>
+				<FaPlus className="w-4 h-4" />
+				<span>Add Character</span>
+			</Button>
+			<Button type="submit">Submit</Button>
+		</form>
+	);
 };
 
 export default CharacterInput;
