@@ -27,7 +27,7 @@ const StoryCreation = () => {
 							<div className="flex ">
 								<Label
 									htmlFor="Characters in the story"
-									className="my-4" // Removed unnecessary classes
+									className="my-4"
 								>
 									Characters in the story
 								</Label>
