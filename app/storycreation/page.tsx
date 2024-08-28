@@ -1,11 +1,14 @@
 import {
 	Card,
+	CardContent,
 	CardDescription,
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
 import Navbar from "../components/shared/navbar/Navbar";
 import React from "react";
+import CharacterInput from "../components/StoryCreationForm/InputCharacter";
+import { Label } from "@/components/ui/label";
 
 const StoryCreation = () => {
 	return (
@@ -17,9 +20,20 @@ const StoryCreation = () => {
 						<CardTitle className=" text-primary text-xl font-bold">
 							Story Creation
 						</CardTitle>
-						<CardDescription className="text-base">
+						<CardDescription className="text-base py-4">
 							Fill out the details below to create your personalized story.
 						</CardDescription>
+						<CardContent>
+							<div className="flex ">
+								<Label
+									htmlFor="Characters in the story"
+									className="my-4" // Removed unnecessary classes
+								>
+									Characters in the story
+								</Label>
+							</div>
+							<CharacterInput />
+						</CardContent>
 					</CardHeader>
 				</Card>
 			</div>
