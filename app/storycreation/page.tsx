@@ -9,6 +9,7 @@ import Navbar from "../components/shared/navbar/Navbar";
 import React from "react";
 import CharacterInput from "../components/StoryCreationForm/InputCharacter";
 import { Label } from "@/components/ui/label";
+import storyCreation from '../locales/storyCreation.i18n.json';
 
 const StoryCreation = () => {
 	return (
