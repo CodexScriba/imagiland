@@ -3,6 +3,8 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Poppins } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { languageTag } from "@/paraglide/runtime";
+
 
 const poppins = Poppins({
 	subsets: ["latin"],
@@ -63,7 +65,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" className={poppins.variable}>
+		<html lang={languageTag()} className={poppins.variable}>
 			<body className={`font-poppins ${poppins.className}`}>
 				<ThemeProvider
 					attribute="class"
