@@ -1,15 +1,18 @@
 import React from "react";
-import FlipBook from "./components/FlipBook/FlibBook";
 import Navbar from "./components/shared/navbar/Navbar";
 
-const StoryPage = () => {
+const Homepage = () => {
 	return (
 		<div>
 			<Navbar />
-			<h1 className="p-10">Online Children’s Book</h1>
-			<FlipBook />
+			<div className="flex justify-center items-center h-screen">
+				<h1 className=" text-3xl font-bold text-center">
+					Create magical personalized stories turning any moment into a
+					adventure.
+				</h1>
+			</div>
 		</div>
 	);
 };
 
-export default StoryPage;
+export default Homepage;
